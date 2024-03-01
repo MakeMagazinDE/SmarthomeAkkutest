@@ -1,0 +1,223 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="Dn~#0H`lX[ke?;8{)S7u">mA_delta</variable>
+  </variables>
+  <block type="comment" id="7A34kl)=KW-t1!T4M`db" x="12" y="263">
+    <field name="COMMENT">Messung alle 3 Sekunden</field>
+    <next>
+      <block type="schedule" id="S%B=C2_#M-/k1S|n!}W!">
+        <field name="SCHEDULE">*/3 * * * * *</field>
+        <statement name="STATEMENT">
+          <block type="controls_if" id=";:6thoukoD|x@=aT+MOJ">
+            <value name="IF0">
+              <block type="logic_operation" id="Ms9WGMUaK,aasaG)tMTR" inline="false">
+                <field name="OP">AND</field>
+                <value name="A">
+                  <block type="get_value" id=":W]2okfi[d$d{6?EyE}l">
+                    <field name="ATTR">val</field>
+                    <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.Relay1.Switch</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="get_value" id="3pwLds^Kn5,qFKdn3(cd">
+                    <field name="ATTR">val</field>
+                    <field name="OID">0_userdata.0.Batterietest.Messung</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="controls_if" id="p2^mRI6;!!BYrRLF8Cqi">
+                <value name="IF0">
+                  <block type="logic_compare" id=":*JYe_z=~)]4uw4**/i0">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="get_value" id=":~bX)o%JmBWJ4_em5486">
+                        <field name="ATTR">val</field>
+                        <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="get_value" id="As@pPn2IYv{Z+RnCrHN5">
+                        <field name="ATTR">val</field>
+                        <field name="OID">0_userdata.0.Batterietest.U_max</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="update" id="#RG~W]oVhD2J+|tozu+6">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                    <field name="OID">0_userdata.0.Batterietest.U_max</field>
+                    <field name="WITH_DELAY">FALSE</field>
+                    <value name="VALUE">
+                      <block type="get_value" id="b4x~U/xClEjAjXo@B),#">
+                        <field name="ATTR">val</field>
+                        <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_if" id="PD)7jT1pMf653ET1a3U/">
+                    <value name="IF0">
+                      <block type="logic_compare" id="T/[KWX4ITyJLKJ_V0b]Q">
+                        <field name="OP">LT</field>
+                        <value name="A">
+                          <block type="get_value" id="h{]Bw5r-,Ak0Jb3I)cWa">
+                            <field name="ATTR">val</field>
+                            <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="get_value" id="KJB6s+YQ2r/=yo/QdXWa">
+                            <field name="ATTR">val</field>
+                            <field name="OID">0_userdata.0.Batterietest.U_min</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="update" id="5s@Z(LB~wR_*J`(`XrWY">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                        <field name="OID">0_userdata.0.Batterietest.U_min</field>
+                        <field name="WITH_DELAY">FALSE</field>
+                        <value name="VALUE">
+                          <block type="get_value" id="IiTIAsVs}|s/df,l`f)Z">
+                            <field name="ATTR">val</field>
+                            <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                          </block>
+                        </value>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="variables_set" id="@!0rTX+CM#Wm@P!H/7tx">
+                        <field name="VAR" id="Dn~#0H`lX[ke?;8{)S7u">mA_delta</field>
+                        <value name="VALUE">
+                          <block type="math_arithmetic" id="~ncs{ZqaH6g$M?n3pHhj" inline="false">
+                            <field name="OP">DIVIDE</field>
+                            <value name="A">
+                              <shadow type="math_number" id="I$N@0E6sbIst`pd}^ufE">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="math_arithmetic" id="i/m#6%}b9aP3g9~dTCX8" inline="false">
+                                <field name="OP">DIVIDE</field>
+                                <value name="A">
+                                  <shadow type="math_number" id="I$N@0E6sbIst`pd}^ufE">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                  <block type="get_value" id="aGaoK9caBVP[[mv-WStP">
+                                    <field name="ATTR">val</field>
+                                    <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                                  </block>
+                                </value>
+                                <value name="B">
+                                  <shadow type="math_number" id="]tv]EF:/{g6~g]e1PR)t">
+                                    <field name="NUM">1</field>
+                                  </shadow>
+                                  <block type="get_value" id="*dWX#BE^ZriLpD;t}+5L">
+                                    <field name="ATTR">val</field>
+                                    <field name="OID">0_userdata.0.Batterietest.Lastwiderstand</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="math_number" id="]tv]EF:/{g6~g]e1PR)t">
+                                <field name="NUM">1.2</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="comment" id="}M)-iV{4vdUGbbvjFZTn">
+                            <field name="COMMENT">alle 3 Sek: 3600s / 3s / 1000 ergibt 1,2</field>
+                            <next>
+                              <block type="update" id="8y{C[#baGq4fR.E10s9(">
+                                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                <field name="OID">0_userdata.0.Batterietest.Kapa_mAh</field>
+                                <field name="WITH_DELAY">FALSE</field>
+                                <value name="VALUE">
+                                  <block type="math_arithmetic" id="yQ(]gGk_B+,^(7=nYM!K" inline="false">
+                                    <field name="OP">ADD</field>
+                                    <value name="A">
+                                      <shadow type="math_number" id=";H|ykn?;^jnfPIfP95en">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="get_value" id="4-QU7Q-NCJm^9IpX;w|r">
+                                        <field name="ATTR">val</field>
+                                        <field name="OID">0_userdata.0.Batterietest.Kapa_mAh</field>
+                                      </block>
+                                    </value>
+                                    <value name="B">
+                                      <shadow type="math_number" id="{.f|X12tuq#$qQ(Nr~?O">
+                                        <field name="NUM">1</field>
+                                      </shadow>
+                                      <block type="variables_get" id="t[73D,(r]6Be`NDV8vz6">
+                                        <field name="VAR" id="Dn~#0H`lX[ke?;8{)S7u">mA_delta</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="update" id="l8$82yP@q1_@L=u0+4=u">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                    <field name="OID">0_userdata.0.Batterietest.Kapa_mWh</field>
+                                    <field name="WITH_DELAY">FALSE</field>
+                                    <value name="VALUE">
+                                      <block type="math_arithmetic" id="Bk_t9FTHPXX9O4{=MPo(" inline="false">
+                                        <field name="OP">ADD</field>
+                                        <value name="A">
+                                          <shadow type="math_number" id=";H|ykn?;^jnfPIfP95en">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="get_value" id="yAn6cmA}[4W9dm.85mdB">
+                                            <field name="ATTR">val</field>
+                                            <field name="OID">0_userdata.0.Batterietest.Kapa_mWh</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <shadow type="math_number" id="{.f|X12tuq#$qQ(Nr~?O">
+                                            <field name="NUM">1</field>
+                                          </shadow>
+                                          <block type="math_arithmetic" id="B0!u4952}~23dG60nf2`" inline="false">
+                                            <field name="OP">MULTIPLY</field>
+                                            <value name="A">
+                                              <shadow type="math_number" id="I$N@0E6sbIst`pd}^ufE">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="get_value" id="JioPJQMrCr.OFA}C~p.]">
+                                                <field name="ATTR">val</field>
+                                                <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <shadow type="math_number" id="%gpht2lGDqfQD.4F1,/h">
+                                                <field name="NUM">1</field>
+                                              </shadow>
+                                              <block type="variables_get" id="W8F?%$|#.~rA4Y1``;Di">
+                                                <field name="VAR" id="Dn~#0H`lX[ke?;8{)S7u">mA_delta</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

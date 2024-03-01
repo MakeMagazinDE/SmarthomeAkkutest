@@ -1,0 +1,101 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="comment" id="zh*6oSezBzL{1_ZUDjd^" x="38" y="63">
+    <field name="COMMENT">Setze den gemessenen Wert des Lastwiderstands</field>
+    <next>
+      <block type="update" id="z1A_sgg.5~l+LGweO3I|">
+        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+        <field name="OID">0_userdata.0.Batterietest.Lastwiderstand</field>
+        <field name="WITH_DELAY">FALSE</field>
+        <value name="VALUE">
+          <block type="math_number" id="0(Uu|aLNf|dk,l=_!N1l">
+            <field name="NUM">101.16</field>
+          </block>
+        </value>
+        <next>
+          <block type="comment" id="(CEx#C);NO,stLOwVxsr">
+            <field name="COMMENT">Start der Messung - Setze Variablen</field>
+            <next>
+              <block type="update" id="FLwgh/ftp0alTe]vu[`w">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                <field name="OID">0_userdata.0.Batterietest.U_max</field>
+                <field name="WITH_DELAY">FALSE</field>
+                <value name="VALUE">
+                  <block type="get_value" id="keKeq4M=12dM}Qv^jnts">
+                    <field name="ATTR">val</field>
+                    <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="update" id="?h+Apx|:Wx#Axm^)B~G)">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                    <field name="OID">0_userdata.0.Batterietest.U_min</field>
+                    <field name="WITH_DELAY">FALSE</field>
+                    <value name="VALUE">
+                      <block type="get_value" id="@ul!Ew+zraU~sRM9(?B[">
+                        <field name="ATTR">val</field>
+                        <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="update" id="tBQuF~+%y`43AMJwIBT^">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                        <field name="OID">0_userdata.0.Batterietest.Kapa_mAh</field>
+                        <field name="WITH_DELAY">FALSE</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="-^.0dOi3fgPHgL3ql~S3">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="update" id="tuy]]q$bDdQWZA(PG:?k">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                            <field name="OID">0_userdata.0.Batterietest.Kapa_mWh</field>
+                            <field name="WITH_DELAY">FALSE</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="Ym_uTnK-9*g{{2r24qoP">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="comment" id="n;Q2En(^1$VfIC)BToU|">
+                                <field name="COMMENT">Setze den gemessenen Wert des Lastwiderstands</field>
+                                <next>
+                                  <block type="update" id="m!x:$3Jl=DDi8BJ!j`oQ">
+                                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                    <field name="OID">0_userdata.0.Batterietest.Messung</field>
+                                    <field name="WITH_DELAY">FALSE</field>
+                                    <value name="VALUE">
+                                      <block type="logic_boolean" id="]7fzQLnenv=pkw^f|s#I">
+                                        <field name="BOOL">TRUE</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="control" id="}F5c)@Ji8Pm8i%g;M@AN">
+                                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                        <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.Relay1.Switch</field>
+                                        <field name="WITH_DELAY">FALSE</field>
+                                        <value name="VALUE">
+                                          <block type="logic_boolean" id="Nw/fPXF`5AsmE1._Ix*.">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,68 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id=";Zz6F`?*#rTZe=F%l/GN">Grenzspannung</variable>
+  </variables>
+  <block type="comment" id="0kNoFXKvwPX1$ihc}/4)" x="13" y="88">
+    <field name="COMMENT">Abschalten der Last (über Shelly) bei Unterspannung </field>
+    <next>
+      <block type="variables_set" id="q-$4LkQKYy:Ml4NtSomN">
+        <field name="VAR" id=";Zz6F`?*#rTZe=F%l/GN">Grenzspannung</field>
+        <value name="VALUE">
+          <block type="math_number" id="IxlZ/wwuzmb|!T#|vfl]">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <next>
+          <block type="on" id="l0aW*XrXJWHa_fe]H$jU">
+            <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+            <field name="CONDITION">ne</field>
+            <field name="ACK_CONDITION"></field>
+            <statement name="STATEMENT">
+              <block type="controls_if" id="O?7pfa(xQpbJ)a4Av{!I">
+                <value name="IF0">
+                  <block type="logic_compare" id="t^H)E1x|-g/.^M|u6R_(">
+                    <field name="OP">LT</field>
+                    <value name="A">
+                      <block type="on_source" id="5pr@,.+SEuktqh?lP6Xt">
+                        <field name="ATTR">state.val</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get" id="tYD6Iwl0o[/@S`c8Io)G">
+                        <field name="VAR" id=";Zz6F`?*#rTZe=F%l/GN">Grenzspannung</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="control" id=":g.8^$20^KTz(IJz#O:Z">
+                    <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                    <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.Relay1.Switch</field>
+                    <field name="WITH_DELAY">FALSE</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id="n66wk3ei,exqvXv-kx.E">
+                        <field name="BOOL">FALSE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="control" id="aFg=?aV16DG67PJF]C]3">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                        <field name="OID">0_userdata.0.Batterietest.Messung</field>
+                        <field name="WITH_DELAY">FALSE</field>
+                        <value name="VALUE">
+                          <block type="logic_boolean" id="pHzz!.%HD6RS_vGY103A">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,42 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="schedule" id="F.a,5uTSq.?e@uU4C3OL" x="63" y="63">
+    <field name="SCHEDULE">*/5 * * * *</field>
+    <statement name="STATEMENT">
+      <block type="controls_if" id="O?7pfa(xQpbJ)a4Av{!I">
+        <value name="IF0">
+          <block type="get_value" id="ha!CaCiAvWTUy+KyohtT">
+            <field name="ATTR">val</field>
+            <field name="OID">0_userdata.0.Batterietest.Messung</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="control" id=":g.8^$20^KTz(IJz#O:Z">
+            <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+            <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.Relay1.Switch</field>
+            <field name="WITH_DELAY">FALSE</field>
+            <value name="VALUE">
+              <block type="logic_boolean" id="n66wk3ei,exqvXv-kx.E">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <next>
+              <block type="control" id="#x0|Fu6Nbv~V+bp,gCLT">
+                <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="true"></mutation>
+                <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.Relay1.Switch</field>
+                <field name="WITH_DELAY">TRUE</field>
+                <field name="DELAY_MS">240</field>
+                <field name="UNIT">sec</field>
+                <field name="CLEAR_RUNNING">FALSE</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="yj_(~Rx=1c(j^]AFZ}nR">
+                    <field name="BOOL">FALSE</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,183 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="r`)%AjgMhy5(;HOjdR(g">V_ZW2</variable>
+    <variable id="TK3]%W6E[7%A;]1lJ(?B">Flag_1</variable>
+    <variable id="@bIc*tdh_mPbA#,XKZlr">Flag_2</variable>
+    <variable id="44uNbvcaji9Q[hLU@n9Z">V_ZW1</variable>
+  </variables>
+  <block type="comment" id="deO3gu8!wm$?rcB;OVz9" x="137" y="12">
+    <field name="COMMENT">Zwischenwerte 1 und 2</field>
+    <next>
+      <block type="variables_set" id="vk.HJvsakYyyN)|0MN5t">
+        <field name="VAR" id="r`)%AjgMhy5(;HOjdR(g">V_ZW2</field>
+        <value name="VALUE">
+          <block type="math_number" id="YCxW*:,k9g^CZ^$`Xp/R">
+            <field name="NUM">7</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="4kxH8y7#$014{5}3T!9u">
+            <field name="VAR" id="r`)%AjgMhy5(;HOjdR(g">V_ZW2</field>
+            <value name="VALUE">
+              <block type="math_number" id="q{asBb{4vdK#sY+w/Xl?">
+                <field name="NUM">6.8</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="n)Vkv}.0vAUZ.(q2z)%j">
+                <field name="VAR" id="TK3]%W6E[7%A;]1lJ(?B">Flag_1</field>
+                <value name="VALUE">
+                  <block type="logic_boolean" id="4D-:9v-9@`mHJs)L7S`#">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="variables_set" id="?()TPaTW~5Xj0,aSL*H8">
+                    <field name="VAR" id="@bIc*tdh_mPbA#,XKZlr">Flag_2</field>
+                    <value name="VALUE">
+                      <block type="logic_boolean" id=",pDQwCLL8tRAUf6zQJJA">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="update" id="e2L,rZ0bQ(9F!9u%ZEzd">
+                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                        <field name="OID">0_userdata.0.Batterietest.V_ZW1</field>
+                        <field name="WITH_DELAY">FALSE</field>
+                        <value name="VALUE">
+                          <block type="math_number" id="Q@{#JHV`*nLpJ_[vV*|n">
+                            <field name="NUM">0</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="update" id="AZnRBl+SU1`WRlb+!:$G">
+                            <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                            <field name="OID">0_userdata.0.Batterietest.V_ZW2</field>
+                            <field name="WITH_DELAY">FALSE</field>
+                            <value name="VALUE">
+                              <block type="math_number" id="]slY2W,jU;._G5mCcF1e">
+                                <field name="NUM">0</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="on" id="#(1Sn7dsKQ=6z{b7EnJK">
+                                <field name="OID">shelly.0.SHUNI-1#C45BBE6BEE67#1.ADC.Power</field>
+                                <field name="CONDITION">ne</field>
+                                <field name="ACK_CONDITION"></field>
+                                <statement name="STATEMENT">
+                                  <block type="controls_if" id="|NunlT(dt9m=z|gX9`x]">
+                                    <mutation elseif="1"></mutation>
+                                    <value name="IF0">
+                                      <block type="logic_operation" id="P[]KrP%ABsk(|u.WPe3k" inline="false">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="895*I*-D?Bz@D7?W63kI">
+                                            <field name="VAR" id="TK3]%W6E[7%A;]1lJ(?B">Flag_1</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="!!pR$y_,O`1z_+PjZ9Mk">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="on_source" id="eeXbC6ea_[9Q2E6x-s5!">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="6~1`fzLq?Q3c1iIS?%b%">
+                                                <field name="VAR" id="44uNbvcaji9Q[hLU@n9Z">V_ZW1</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO0">
+                                      <block type="update" id="pAP|nig#Fvd]A~d]jZ+R">
+                                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                        <field name="OID">0_userdata.0.Batterietest.V_ZW1</field>
+                                        <field name="WITH_DELAY">FALSE</field>
+                                        <value name="VALUE">
+                                          <block type="get_value" id=")4rx3LXpnWBPp/7T0z^q">
+                                            <field name="ATTR">val</field>
+                                            <field name="OID">0_userdata.0.Batterietest.Kapa_mAh</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="A~G=@f%(dmUtq_XJVUCO">
+                                            <field name="VAR" id="TK3]%W6E[7%A;]1lJ(?B">Flag_1</field>
+                                            <value name="VALUE">
+                                              <block type="logic_boolean" id="vcmvbo{dP{!T6}2)wbRW">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <value name="IF1">
+                                      <block type="logic_operation" id="42.(#Od!+O+6UbM5ii^5" inline="false">
+                                        <field name="OP">AND</field>
+                                        <value name="A">
+                                          <block type="variables_get" id="8a[B:C5^|sm-^R;}YfyE">
+                                            <field name="VAR" id="@bIc*tdh_mPbA#,XKZlr">Flag_2</field>
+                                          </block>
+                                        </value>
+                                        <value name="B">
+                                          <block type="logic_compare" id="#DwSg0o(O92]hWNBrR1a">
+                                            <field name="OP">EQ</field>
+                                            <value name="A">
+                                              <block type="on_source" id="DhgF.brx6pUg2ye$^%9J">
+                                                <field name="ATTR">state.val</field>
+                                              </block>
+                                            </value>
+                                            <value name="B">
+                                              <block type="variables_get" id="E26H/zkp!j=W+bZOq9}j">
+                                                <field name="VAR" id="r`)%AjgMhy5(;HOjdR(g">V_ZW2</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <statement name="DO1">
+                                      <block type="update" id="mFWzB-C2W)5h2.nd0NxL">
+                                        <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
+                                        <field name="OID">0_userdata.0.Batterietest.V_70</field>
+                                        <field name="WITH_DELAY">FALSE</field>
+                                        <value name="VALUE">
+                                          <block type="get_value" id="g;=Pa~*X|PZ]E{{_6fkV">
+                                            <field name="ATTR">val</field>
+                                            <field name="OID">0_userdata.0.Batterietest.Kapa_mAh</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="3HKZ@LjAe3@xtlmxKAL0">
+                                            <field name="VAR" id="@bIc*tdh_mPbA#,XKZlr">Flag_2</field>
+                                            <value name="VALUE">
+                                              <block type="logic_boolean" id="]Pe4D7ATTiG`]6/W/t[w">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>
