@@ -1,0 +1,126 @@
+{
+  "0_userdata.0.Akkutest": {
+    "common": {
+      "name": "Akkutest"
+    },
+    "type": "folder",
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357481090,
+    "_id": "0_userdata.0.Akkutest"
+  },
+  "0_userdata.0.Akkutest.Kapa_mAh": {
+    "common": {
+      "name": "Kapa_mAh",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "number",
+      "read": true,
+      "write": true,
+      "def": 0
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357521585,
+    "_id": "0_userdata.0.Akkutest.Kapa_mAh",
+    "val": 7010.214923540731,
+    "ack": true
+  },
+  "0_userdata.0.Akkutest.Kapa_mWh": {
+    "common": {
+      "name": "Kapa_mWh",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "number",
+      "read": true,
+      "write": true,
+      "def": 0
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357537465,
+    "_id": "0_userdata.0.Akkutest.Kapa_mWh",
+    "val": 53967.90790422735,
+    "ack": true
+  },
+  "0_userdata.0.Akkutest.Lastwiderstand": {
+    "common": {
+      "name": "Lastwiderstand",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "number",
+      "read": true,
+      "write": true,
+      "def": 0
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357554528,
+    "_id": "0_userdata.0.Akkutest.Lastwiderstand",
+    "val": 101.16,
+    "ack": true
+  },
+  "0_userdata.0.Akkutest.Messung": {
+    "common": {
+      "name": "Messung",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "boolean",
+      "read": true,
+      "write": true,
+      "def": false
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357503993,
+    "_id": "0_userdata.0.Akkutest.Messung",
+    "val": true,
+    "ack": false
+  },
+  "0_userdata.0.Akkutest.U_max": {
+    "common": {
+      "name": "U_max",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "number",
+      "read": true,
+      "write": true,
+      "def": 0
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357571030,
+    "_id": "0_userdata.0.Akkutest.U_max",
+    "val": 8.28,
+    "ack": true
+  },
+  "0_userdata.0.Akkutest.U_min": {
+    "common": {
+      "name": "U_min",
+      "desc": "Manuell erzeugt",
+      "role": "state",
+      "type": "number",
+      "read": true,
+      "write": true,
+      "def": 0
+    },
+    "type": "state",
+    "native": {},
+    "from": "system.adapter.admin.0",
+    "user": "system.user.admin",
+    "ts": 1708357582511,
+    "_id": "0_userdata.0.Akkutest.U_min",
+    "val": 7.69,
+    "ack": true
+  }
+}

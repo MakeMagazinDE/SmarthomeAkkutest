@@ -4,7 +4,7 @@
     <next>
       <block type="update" id="m!x:$3Jl=DDi8BJ!j`oQ">
         <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-        <field name="OID">0_userdata.0.Batterietest.Messung</field>
+        <field name="OID">0_userdata.0.Akkutest.Messung</field>
         <field name="WITH_DELAY">FALSE</field>
         <value name="VALUE">
           <block type="logic_boolean" id="]7fzQLnenv=pkw^f|s#I">

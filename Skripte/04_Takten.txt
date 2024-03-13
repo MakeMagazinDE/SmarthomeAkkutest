@@ -6,7 +6,7 @@
         <value name="IF0">
           <block type="get_value" id="ha!CaCiAvWTUy+KyohtT">
             <field name="ATTR">val</field>
-            <field name="OID">0_userdata.0.Batterietest.Messung</field>
+            <field name="OID">0_userdata.0.Akkutest.Messung</field>
           </block>
         </value>
         <statement name="DO0">

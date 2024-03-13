@@ -45,9 +45,9 @@
                       </block>
                     </value>
                     <next>
-                      <block type="control" id="aFg=?aV16DG67PJF]C]3">
+                      <block type="update" id="$g[=p1+ltUNSAfYHly}(">
                         <mutation xmlns="http://www.w3.org/1999/xhtml" delay_input="false"></mutation>
-                        <field name="OID">0_userdata.0.Batterietest.Messung</field>
+                        <field name="OID">0_userdata.0.Akkutest.Messung</field>
                         <field name="WITH_DELAY">FALSE</field>
                         <value name="VALUE">
                           <block type="logic_boolean" id="pHzz!.%HD6RS_vGY103A">
